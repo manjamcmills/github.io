@@ -94,7 +94,7 @@ The features included everything except "loan_status". <br><br> Here is a snapsh
 
 <br><br>The target group only contains the "loan_status". Here is a snapshot of the target data called “y”: <br>
 
-<img src="Resources/y_group.png" alt="y_group" style="width:400px;"/>
+<img src="Resources/y_group.png" alt="y_group" style="width:500px;"/>
 
 <br><br>After separating into 2 groups, the “train_test_split” method from the scikit-learn library was used to further split the data into the 4 groups of X_train, X_test, y_train, and y_test.
 <br><img src="Resources/train_test_groups.png" alt="train_test_groups" style="width:900px;"/>
@@ -105,7 +105,7 @@ The features included everything except "loan_status". <br><br> Here is a snapsh
 
 <h3 style="color:blue"><b>Random Over Sampler</b></h3>
 <h5 style="line-height:1.4">One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method, from the imbalanced-learn library, randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
- <br><img src="Resources/random_over_sampler.png" alt="random_over_sampler" style="width:700px;"/> <br><br>
+ <br><img src="Resources/random_over_sampler.png" alt="random_over_sampler" style="width: 700px;"/> <br><br>
 
 Then a LogisticRegression model was used to “fit” the data using the scikit-learn library.
 <br><img src="Resources/rand_log_reg.png" alt="rand_log_reg" style="width:700px;"/> <br><br>
@@ -121,9 +121,9 @@ Thereafter, a confusion matrix was created from the scikit-learn library and the
 
 <br><br>After using this method, similar to the RandomOverSampling method, there were also 51,366
 “low_risk” and 51,366 “high_risk”.
-<br><img src="Resources/smote.png" alt="smote" style="width:800px;"/> <br><br>
+<br><img src="Resources/smote.png" alt="smote" style="width:900px;"/> <br><br>
 
-The following steps were applied just like before with theRandomOverSampling method: 
+The following steps were applied just like before with the RandomOverSampling method: 
 
 <br><img src="Resources/smote_2.png" alt="smote_2" style="width:800px;"/> <br><br>
 
@@ -139,7 +139,7 @@ or even a 1:1 class distribution. <br><br>
 <h5 style="line-height:1.4">Cluster centroid undersampling algorithm identifies clusters of the majority class, then generates synthetic data points, called centroids, that are representative of the clusters. The majority class is then undersampled down to the size of the minority class.
 
 <br><br>After using the ClusterCentroids method on the data, there were 246 "high_risk" and 246 "low-risk". 
-<br><img src="Resources/cluster_count.png" alt="cluster_count" style="width:800px;"/> <br><br>
+<br><img src="Resources/cluster_count.png" alt="cluster_count" style="width:700px;"/> <br><br>
 
 Just like before, the following steps were taken:<br>
 1) The resampled data was fitted to a logistic regression model. <br>
@@ -216,7 +216,7 @@ TP = True Positive &nbsp; &nbsp; FP = False Positive &nbsp;  &nbsp; &nbsp;TN = T
 <br><h3 style="color:blue"><b>Accuracy</b></h3>
 <h5 style="line-height:1.4">The accuracy score is simply the percentage of predictions that are correct. Here is the formula to calculate accuracy:
 
-<br><img src="Resources/accuracy.png" alt="accuracy" style="height:50px;"/> <br> <br>
+<br><img src="Resources/accuracy.png" alt="accuracy" style="height:60px;"/> <br> <br>
 
 The AdaBoost Classifier had an accuracy score 0.93, which means the model was correct 93% of the time.  This was significantly  higher than all the other models.
 </h5>
@@ -225,7 +225,7 @@ The AdaBoost Classifier had an accuracy score 0.93, which means the model was co
 
 <br><br>Here is the formula for precision:
 
-<br><img src="Resources/precision.png" alt="precision" style="height:50px;"/><br><br>
+<br><img src="Resources/precision.png" alt="precision" style="height:60px;"/><br><br>
 
 All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  This means that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not being caught enough.  
 
@@ -238,7 +238,7 @@ All of our models had almost 100% precision for low_risk loans. However, they al
 <h5 style="line-height:1.4">Another way to assess a model's performance is with sensitivity, also called recall. Sensitivity is the converse statement of precision.  It would say "If a loan is actually high_risk, would the model classify it high_risk?" 
 <br>Here is the formula for sensitivity: <br>
 
-<img src="Resources/sensitivity.png" alt="sensitivity" style="height:50px;"/><br><br>
+<img src="Resources/sensitivity.png" alt="sensitivity" style="height:60px;"/><br><br>
 
 The model with the best recall/sensitivity was again AdaBoost with a recall of 0.91 for high_risk and 0.94 for low_risk. <br><br> This means the following:
 <br>* 91% of true "high risk" loans were classified "high risk"
@@ -250,15 +250,20 @@ The model with the best recall/sensitivity was again AdaBoost with a recall of 0
 <h5 style="line-height:1.4">The F1 score is a way of combining the precision and recall of the model, and it is defined as the harmonic mean of the model’s precision and recall.
 <br><br> Here is the formula for F1:<br>
 
-<img src="Resources/f1.png" alt="f1" style="height:50px;"/><br><br> 
+<img src="Resources/f1.png" alt="f1" style="height:60px;"/><br><br> 
 
 
 The model with the best F1 score for both high_risk and low_risk was yet again AdaBoost.  It had a F1-score of 0.14 for high_risk and 0.97 for low_risk. 
 </h5>
 <br><br><h3 style="color:blue"><b>Recommendation</b></h3>
-<h5 style="line-height:1.4">It is apparent that the AdaBoost Classifier is the best model out of all 6 choices. It had the highest scores for all the metrics discussed.  If a model had to be chosen from this bunch, I would choose AdaBoost.
+<h5 style="line-height:1.4">It is apparent that the AdaBoost Classifier is the best model out of all of the 6 choices. 
+  It had the highest scores for all the metrics discussed.  
+  If a model had to be chosen from this bunch, I would choose AdaBoost.  
+  When dealing with credit risk, it is better to flag a loan "high risk" when it is actually "low risk", than to let a "high risk" loan go undedected. 
 
-The main goal of this model is to flag "high_risk" loans and this model still has some room for improvement.  I would like to see more work done on another model to see if we can have a higher Precision & Recall to catch the "high_risk" loans.  Otherwise, the AdaBoost does seem like a good model if all other strategies have been exhausted and tested.
+<br><br>The main goal of this model is to flag "high_risk" loans and this model still has some room for improvement.  
+I would like to see more work done on another model to see if we can have a higher Precision & Recall to catch all the "high_risk" loans more accurately.  
+Otherwise, the AdaBoost does seem like a good model if all other strategies have been exhausted and tested.
 </h5>
         
         
