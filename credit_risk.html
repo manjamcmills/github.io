@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">e
+
+  <title>Manja McMills Data Professional</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style type="text/css"> p.space {line-height:200%;} </style>
+</head>
+
+
+    <BODY >
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/manja_pic.jpg" alt="" class="img-fluid rounded-circle" >
+        <h1 class="text-light"><a href="index.html">Manja McMills</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="mailto:manjamcmills@gmail.com" class="email"><i class="bx bxl-gmail"></i></a>
+          <a href="https://www.linkedin.com/in/manja-mcmills/" target = "_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="https://github.com/manjamcmills/Credit_Risk_Analysis"  target = "_blank" class="nav-link scrollto active">
+            <img src="assets/img/portfolio/github.jpg" width="30" class="img-fluid" alt=""><span> &nbsp; &nbsp;  
+                Credit Risk Git Hub Respository</span></a></li>
+          <li><a href="https://drive.google.com/file/d/1ZL44LCvm-VADmNJr8zyDBTNneub085Cn/view?usp=sharing"  target = "_blank" class="nav-link scrollto active">
+            <img src="assets/img/portfolio/download.jpg" width="30" class="img-fluid" alt=""><span> &nbsp; &nbsp;  
+                Loan Stats Data Source</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+
+  <main id="main">
+
+
+    <section id="TITLE" class="about">
+        <div class="col-lg-12 col-md-12 portfolio-item filter-web">
+              <img src="assets/img/portfolio/credit risk BANNER.jpg" class="img-fluid" alt="">
+         
+        </div>
+
+
+
+    <!-- ======= Credit Risk Section ======= -->
+    <section id="contact" class="contact">
+   
+      <div class="container">
+        
+        <h1><b> Overview of Project</b></h1>
+        <h5 style="line-height:1.4">Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans. In this project, a credit card dataset from LendingClub, a peer-to-peer lending services company, was used to make various models by applying Machine Learning.
+            <br>
+            <br>The following methods were applied:
+            <br>1) Oversampling using the RandomOverSampler and SMOTE algorithms
+            <br>2) Undersampling using the ClusterCentroids algorithm
+            <br>3) Combinatorial approach of over- and undersampling using the SMOTEENN algorithm
+            <br>4) Two machine learning models that reduce bias, BalancedRandomForestClassifier and
+            EasyEnsembleClassifier, to predict credit risk <br><br>
+
+            Before any of the techniques could be used, the data had to be cleaned and sorted. The data was sorted into 2 groups - the features and target.
+
+The features included everything except "loan_status". <br><br> Here is a snapshot of the features data frame called “X”: <br>
+<img src="Resources/X_group.png" alt="X_group" style="width:1000px;"/>
+
+<br><br>The target group only contains the "loan_status". Here is a snapshot of the target data called “y”:
+
+<img src="Resources/y_group.png" alt="y_group" style="width:400px;"/>
+
+<br><br>After separating into 2 groups, the “train_test_split” method from the scikit-learn library was used to further split the data into the 4 groups of X_train, X_test, y_train, and y_test.
+<br><img src="Resources/train_test_groups.png" alt="train_test_groups" style="width:900px;"/>
+
+<br><br>Since the majority class (68,470 “low risk loans”) and the minority class (347 “high risk loans”) were such different sizes, the following methods were applied to see which had the best results.
+</h5>
+<br> <br> <h2 style="color:darkgreen"><b>Oversampling Results</b></h2> <br>
+
+<h3 style="color:blue"><b>Random Over Sampler</b></h3>
+<h5 style="line-height:1.4">One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method, from the imbalanced-learn library, randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
+ <br><img src="Resources/random_over_sampler.png" alt="random_over_sampler" style="width:700px;"/> <br><br>
+
+Then a LogisticRegression model was used to “fit” the data using the scikit-learn library.
+<br><img src="Resources/rand_log_reg.png" alt="rand_log_reg" style="width:700px;"/> <br><br>
+
+Next, a balanced_accuracy_score was calculated.
+<br><img src="Resources/rand_acc.png" alt="rand_acc" style="width:700px;"/> <br><br>
+
+Thereafter, a confusion matrix was created from the scikit-learn library and then an “Imbalanced Classification Report” was calculated using the imbalanced-learn library method of classification_report_imbalaced.
+<br><img src="Resources/rand_conf_class.png" alt="rand_conf_class" style="width:700px;"/> <br><br> </h5>
+
+<h3 style="color:blue"><b>SMOTE Oversampling</b></h3>
+<h5 style="line-height:1.4">Another approach to addressing imbalanced datasets to oversample the minority class is that new examples can be synthesized from the existing examples. The Synthetic Minority Oversampling Technique, or SMOTE for short, method from imbalanced-learn library accomplishes this goal. SMOTE works by selecting examples that are close in the feature space, drawing a line between the examples in the feature space and drawing a new sample at a point along that line. 
+
+<br><br>After using this method, similar to the RandomOverSampling method, there were also 51,366
+“low_risk” and 51,366 “high_risk”.
+<br><img src="Resources/smote.png" alt="smote" style="width:800px;"/> <br><br>
+
+The following steps were applied just like before with theRandomOverSampling method: 
+
+<br><img src="Resources/smote_2.png" alt="smote_2" style="width:800px;"/> <br><br>
+
+
+
+
+</h5>
+<h2 style="color:darkgreen"><b>Undersampling Results</b></h2>
+<h5 style="line-height:1.4">Undersampling techniques remove examples from the training dataset that belong to the majority class in order to better balance the class distribution, such as reducing the skew from a 1:100 to a 1:10, 1:2,
+or even a 1:1 class distribution. <br><br>
+<h3 style="color:blue"><b>Cluster Centroids</b></h3>
+
+<h5 style="line-height:1.4">Cluster centroid undersampling algorithm identifies clusters of the majority class, then generates synthetic data points, called centroids, that are representative of the clusters. The majority class is then undersampled down to the size of the minority class.
+
+<br><br>After using the ClusterCentroids method on the data, there were 246 "high_risk" and 246 "low-risk". 
+<br><img src="Resources/cluster_count.png" alt="cluster_count" style="width:800px;"/> <br><br>
+
+Just like before, the following steps were taken:<br>
+1) The resampled data was fitted to a logistic regression model. <br>
+2) Balanced Accuracy was calculated<br>
+3) Confusion Matrix was displayed<br>
+4) The imbalanced classification report was displayed
+
+<br><img src="Resources/cluster_more.png" alt="cluster_more" style="width:1000px;"/> <br><br>
+
+<h2 style="color:darkgreen"><b>Combination (Over and Under) Sampling Results</b></h2>
+<h5 style="line-height:1.4">A downside of oversampling with SMOTE is its reliance on the immediate neighbors of a data point. Because the algorithm doesn't see the overall distribution of data, the new data points it creates can be heavily influenced by outliers. This can lead to noisy data. With undersampling, the downsides are that it involves loss of data and is not an option when the dataset is small. One way to deal with these challenges is to use a sampling strategy that is a combination of oversampling and undersampling.
+
+</h5>
+<br><br><h3 style="color:blue"><b>SMOTEENN</b></h3>
+<h5 style="line-height:1.4">SMOTEENN combines the SMOTE and Edited Nearest Neighbors (ENN) algorithms. <br><br>SMOTEENN is a two-step process:<br>
+1) Oversample the minority class with SMOTE.<br>
+2) Clean the resulting data with an undersampling strategy. If the two nearest neighbors of a data point belong to two different classes, that data point is dropped.
+
+<br><br>The SMOTEENN method was then applied to our data.  The result was having 68,460 "high_risk" and 62011 "low_risk". Then the model was created with our oversampled & undersampled data.
+
+<br><img src="Resources/smoteenn.png" alt="smoteenn" style="width:800px;"/> <br><br>
+
+Yet again, the same coding/calculations were made to evaluate the model.
+
+<br><img src="Resources/smoteenn_2.png" alt="smoteenn_2" style="width:800px;"/> <br><br>
+
+
+<h2 style="color:darkgreen"><b>Ensemble Classifiers Results</b></h2>
+
+<h5 style="line-height:1.4">Ensemble learning is the process of combining multiple models to help improve the accuracy and strength, as well as decrease the variance of a model, in order to increase the overall performance of a model. 
+</h5>
+<br><h3 style="color:blue"><b>Balanced Random Forest Classifier</b></h3>
+<h5 style="line-height:1.4"> Instead of having a single, complex tree like the ones created by decision trees, a random forest algorithm will sample the data and build several smaller, simpler decision trees. Each tree is simpler because it is built from a random subset of features. The Balanced Random Forest Classifier (from the imbalanced-learn library ) is an ensemble method in which each tree of the forest will be provided a balanced bootstrap sample which still provides all functionality of the RandomForestClassifier:
+
+<br><br>To use the Balanced Random Forest Classifier, we did an import for the imbalanced-learn library and then fit the model using our training data. 
+<br><img src="Resources/bal_rand_forest.png" alt="bal_rand_forest" style="width:800px;"/> <br><br>
+
+Next, we used all the same metrics as before to evaluate our model:
+<br><img src="Resources/bal_rand_forest_2.png" alt="bal_rand_forest_2" style="width:800px;"/> <br><br>
+
+
+To see which features, the model found the most important, a dataframe was then created which ordered the features in descending order:
+<br><img src="Resources/order_importance.png" alt="order_importance" style="width:800px;"/> <br><br>
+
+Here is a graph which shows the same data:
+ <br><img src="Resources/order_importance_graph.png" alt="order_importance_graph" style="width:1200px;"/> <br><br>
+
+ <br><h3 style="color:blue"><b>Easy Ensemble AdaBoost Classifier</b></h3>
+<h5 style="line-height:1.4">Last, but not least, was the AdaBoost Ensemble. The AdaBoost algorithm involves using very short (one-level) decision trees as weak learners that are added sequentially to the ensemble. Each subsequent model attempts to correct the predictions made by the model before it in the sequence. This is achieved by weighing the training dataset to put more focus on training examples on which prior models made prediction errors
+
+<br><br>Here is the code to apply AdaBoost and fit the model:
+<br><img src="Resources/easy.png" alt="easy" style="width:700px;"/> <br><br>
+
+Here are the metrics to evaluate the model:
+<br><img src="Resources/easy_2.png" alt="easy_2" style="width:700px;"/> <br><br>
+</h5>
+<h2 style="color:darkgreen"><b>Summary</b></h2>
+<h5 style="line-height:1.4">To decide which of the models is the best to use, I made a summary table with all of the models showing the following:
+<br>* accuracy
+<br>* Precision
+<br>* Recall (Sensitivity)
+<br>* Specificity
+<br>* F1 Score
+  
+<br>There are other metrics besides these, but I felt that these were the ones I should focus on.
+
+Here is the model summary table:
+<br><img src="Resources/SUMMARY.png" alt="SUMMARY" style="width:700px;"/> <br><br>
+
+
+*Note* <br>
+TP = True Positive &nbsp; &nbsp; FP = False Positive &nbsp;  &nbsp; &nbsp;TN = True Negative  &nbsp; &nbsp; FN = False Negative <br>
+<br></h5>
+<br><h3 style="color:blue"><b>Accuracy</b></h3>
+<h5 style="line-height:1.4">The accuracy score is simply the percentage of predictions that are correct. Here is the formula to calculate accuracy:
+
+<br><img src="Resources/accuracy.png" alt="accuracy" style="height:50px;"/> <br> <br>
+
+The AdaBoost Classifier had an accuracy score 0.93, which means the model was correct 93% of the time.  This was significantly  higher than all the other models.
+</h5>
+<br><h3 style="color:blue"><b>Precision</b></h3>
+<h5 style="line-height:1.4">Precision tells us how reliable a positive classification is.  For our purposes with credit risk, it is telling us if a loan is deemed to be "loan risk" how likely is it actually a "low risk" loan. Likewise, it would tell us if a loan was deemed "high risk", how likely it was actually a "high risk" loan.
+
+<br><br>Here is the formula for precision:
+
+<br><img src="Resources/precision.png" alt="precision" style="height:50px;"/><br><br>
+
+All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  This means that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not being caught enough.  
+
+<br><br>The best precision rate for "high risk" was the AdaBoost model with 0.07. This means the following:
+<br>* 7% of the loans that were deemed "high risk" were true "high risk"
+<br>* 93% of loans that were classified as "high risk" were actually "low risk".  
+<br>* 100% of the loans that were classified "low risk" were true "low risk" <br><br>
+</h5>
+<br><h3 style="color:blue"><b>Recall / Sensitivity</b></h3>
+<h5 style="line-height:1.4">Another way to assess a model's performance is with sensitivity, also called recall. Sensitivity is the converse statement of precision.  It would say "If a loan is actually high_risk, would the model classify it high_risk?" 
+<br>Here is the formula for sensitivity: <br>
+
+<img src="Resources/sensitivity.png" alt="sensitivity" style="height:50px;"/><br><br>
+
+The model with the best recall/sensitivity was again AdaBoost with a recall of 0.91 for high_risk and 0.94 for low_risk. <br><br> This means the following:
+<br>* 91% of true "high risk" loans were classified "high risk"
+<br>* 9% of true "high risk" loans were classified "low risk"
+<br>* 94% of the "low risk" loans were classified "low risk" 
+<br>* 6% of the "low risk" loans were classified as "high risk" <br><br>
+</h5>
+<br><h3 style="color:blue"><b>F1 Score</b></h3>
+<h5 style="line-height:1.4">The F1 score is a way of combining the precision and recall of the model, and it is defined as the harmonic mean of the model’s precision and recall.
+<br><br> Here is the formula for F1:<br>
+
+<img src="Resources/f1.png" alt="f1" style="height:50px;"/><br><br> 
+
+
+The model with the best F1 score for both high_risk and low_risk was yet again AdaBoost.  It had a F1-score of 0.14 for high_risk and 0.97 for low_risk. 
+</h5>
+<br><br><h3 style="color:blue"><b>Recommendation</b></h3>
+<h5 style="line-height:1.4">It is apparent that the AdaBoost Classifier is the best model out of all 6 choices. It had the highest scores for all the metrics discussed.  If a model had to be chosen from this bunch, I would choose AdaBoost.
+
+The main goal of this model is to flag "high_risk" loans and this model still has some room for improvement.  I would like to see more work done on another model to see if we can have a higher Precision & Recall to catch the "high_risk" loans.  Otherwise, the AdaBoost does seem like a good model if all other strategies have been exhausted and tested.
+</h5>
+        
+        
+        
+        
+        </h5>
+    </BODY>
+        <div class="row" data-aos="fade-in">
+
+
+    <div class = "container"></div>
+
+        </div>
+        
+
+        
+
+      </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</p>
+</body>
+
+</html>
